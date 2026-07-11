@@ -48,8 +48,8 @@ export default function Timer({ addiction }: Props) {
 
     return (
         <p>
-            {time.nbYears} ans, {time.nbMonths} mois,
-            {time.nbDays} jours, {time.nbHours} heures
+            {time.nbYears} years, {time.nbMonths} months,
+            {time.nbDays} days, {time.nbHours} hours
         </p>
     );
 }
