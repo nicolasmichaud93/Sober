@@ -1,5 +1,39 @@
 # React + TypeScript + Vite
 
+# Sobriety Tracker
+
+A simple React + TypeScript application to track how long you've stayed clean from different addictions.
+
+## Installation
+
+```bash
+npm install
+npm run dev
+```
+
+## Configuration
+
+Create a file named `src/Data.ts`.
+
+You can copy `src/Data.example.ts` and modify it.
+
+Example:
+
+```ts
+import type { Addiction } from "./Addiction";
+
+export const addictions: Addiction[] = [
+    {
+        name: "Coffee",
+        date: new Date("2026-01-01T08:00:00"),
+    },
+    {
+        name: "Smoking",
+        date: new Date("2026-06-15T14:00:00"),
+    },
+];
+```
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
@@ -73,3 +107,4 @@ export default defineConfig([
 ])
 
 ```
+
