@@ -2,11 +2,15 @@ import { addictions } from "./Data";
 import Timer from "./Timer";
 
 function App() {
+  const sortedAddictions = [...addictions].sort(
+    (a, b) => a.date.getTime() - b.date.getTime()
+  );
+
   return (
     <>
       <h1>Sobriety Tracker</h1>
 
-      {addictions.map((addiction) => (
+      {sortedAddictions.map((addiction) => (
         <div
           key={addiction.name}
           style={{
