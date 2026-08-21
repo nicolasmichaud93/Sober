@@ -1,4 +1,4 @@
-import type { Addiction } from "./Addiction"
+import type { Addiction } from "./Addiction";
 
 type Props = {
     addiction: Addiction;
@@ -6,7 +6,7 @@ type Props = {
 
 type CustomDate = {
     nbYears: number,
-    nbMonths: number
+    nbMonths: number,
     nbDays: number,
     nbHours: number
 }
@@ -39,17 +39,38 @@ export function calculateTime(addiction: Addiction): CustomDate {
         nbYears: years,
         nbMonths: months,
         nbDays: days,
-        nbHours: hours,
+        nbHours: hours
     };
 }
 
 export default function Timer({ addiction }: Props) {
     const time = calculateTime(addiction);
 
+    const now = new Date();
+    const elapsedMilliseconds =
+        now.getTime() - addiction.date.getTime();
+
+    const cleanDays = Math.floor(
+        elapsedMilliseconds / (1000 * 60 * 60 * 24)
+    );
+
     return (
-        <p>
-            {time.nbYears} years, {time.nbMonths} months,
-            {time.nbDays} days, {time.nbHours} hours
-        </p>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "40px",
+            }}
+        >
+            <p>
+                {time.nbYears} years, {time.nbMonths} months,
+                {time.nbDays} days, {time.nbHours} hours
+            </p>
+
+            <p>
+                {cleanDays} days clean
+            </p>
+        </div>
     );
 }
